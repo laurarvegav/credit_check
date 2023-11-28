@@ -7,7 +7,7 @@
 # # Your Luhn Algorithm Here
 def Luhn_Algorithm(card_number)
     #Convert that string to an array, making each number an index
-    card_numbers = card_number.split('')
+    card_numbers = card_number.split("")
     #Convert each element on the array to an integer
     card_numbers = card_numbers.map{|x| x.to_i}
     
@@ -23,14 +23,15 @@ def Luhn_Algorithm(card_number)
         x += 1
     }
 
-    # Evaluate the elements that are >=10, add both digits and  store that result 
+    # Evaluate the elements that are >=10, add both digits and store that result 
     # in the same index.
     card_additions = Array.new
     n.times {|x|
         if card_multiplication[x] >= 10
-        card_additions[x] = ((card_multiplication[x]/10) + (card_multiplication[x]%10))
-        x += 1
-        else card_additions[x] = card_multiplication[x]
+            card_additions[x] = ((card_multiplication[x]/10) + (card_multiplication[x]%10))
+            x += 1
+        else 
+            card_additions[x] = card_multiplication[x]
         end
     }
     # sum all the elements of the last array 
@@ -39,7 +40,8 @@ def Luhn_Algorithm(card_number)
     #Evaluate if that sum result is divisible by 10.
     if (card_addition%10) == 0
         puts "The number #{card_number} is valid!"
-    else puts "The number #{card_number} is invalid!"
+    else
+        puts "The number #{card_number} is invalid!"
     end
 end
 

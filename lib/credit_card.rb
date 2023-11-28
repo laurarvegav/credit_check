@@ -11,8 +11,7 @@ def initialize (card_number, limit)
 end
 
 def is_valid?
-     
-    # Multiply every other element by 2, starting by the first, (2* uneven element)
+    # Multiply every other element by 2, starting by the first, 2*(even index's element)
     n = @card_number.length
     card_multiplication = Array.new
     n.times {|x| 
@@ -36,8 +35,7 @@ def is_valid?
         }
    
     #Evaluate if that sum result is divisible by 10.
-    ((card_additions.sum)%10) == 0
-    
+    ((card_additions.sum)%10) == 0  
 end
 
 def last_four
