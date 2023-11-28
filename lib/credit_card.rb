@@ -1,19 +1,25 @@
-class CreditCard (card_number,limit)
-attr_reader :card_number, :limit
 
+class CreditCard 
+    attr_reader :card_number, :limit
+def initialize (card_number, limit)
+    @card_number = card_number
+    @limit = limit
     #Convert Card Number string to an array, making each number an index
-    card_numbers = card_number.split('')
+    card_numbers = @card_number.split('')
     #Convert each element on the array to an integer
-    card_numbers = card_numbers.map{|x| x.to_i}
+    @card_numbers = card_numbers.map{|x| x.to_i}
+end
 
+def is_valid?
+     
     # Multiply every other element by 2, starting by the first, (2* uneven element)
-    n = card_number.length
+    n = @card_number.length
     card_multiplication = Array.new
     n.times {|x| 
         if x.even?
-            card_multiplication[x] = card_numbers[x] * 2
+            card_multiplication[x] = @card_numbers[x] * 2
         else
-            card_multiplication[x] = card_numbers[x]
+            card_multiplication[x] = @card_numbers[x]
         end
         x += 1
         }
@@ -28,20 +34,13 @@ attr_reader :card_number, :limit
         else card_additions[x] = card_multiplication[x]
         end
         }
-    # sum all the elements of the last array 
-    card_addition = card_additions.sum
-
-def is_valid?
-        
+   
     #Evaluate if that sum result is divisible by 10.
-    if (card_addition%10) == 0
-        puts "True"
-    else puts "False"
-    end
+    ((card_additions.sum)%10) == 0
+    
 end
 
-def last_four (card_number)
-    puts card_numbers[-4 .. -1]
+def last_four
+   lfour_dig = @card_numbers.last(4).join("")
 end
-
 end
