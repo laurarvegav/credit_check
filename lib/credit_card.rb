@@ -12,8 +12,10 @@ end
 
 def is_valid?
     # Multiply every other element by 2, starting by the first, 2*(even index's element)
+    
+    
     n = @card_number.length
-    card_multiplication = Array.new
+    card_multiplication = []
     n.times {|x| 
         if x.even?
             card_multiplication[x] = @card_numbers[x] * 2
@@ -25,12 +27,13 @@ def is_valid?
 
     # Evaluate the elements that are >=10, add both digits and  store that result 
     # in the same index.
-    card_additions = Array.new
+    card_additions = []
     n.times {|x|
         if card_multiplication[x] >= 10
-        card_additions[x] = ((card_multiplication[x]/10) + (card_multiplication[x]%10))
-        x += 1
-        else card_additions[x] = card_multiplication[x]
+            card_additions[x] = ((card_multiplication[x]/10) + (card_multiplication[x]%10))
+            x += 1
+        else 
+            card_additions[x] = card_multiplication[x]
         end
         }
    

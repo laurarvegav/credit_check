@@ -16,7 +16,6 @@ describe CreditCard do
     it 'is valid?' do
         credit_card = CreditCard.new("5541808923795240", 15000)
         expect(credit_card.is_valid?).to eq (true)
-        expect(credit_card.is_valid?).to be true
     end
 
     it 'has last four digits' do
@@ -24,4 +23,8 @@ describe CreditCard do
         expect(credit_card.last_four).to eq "5240"
     end
 
+    it 'is invalid?' do
+        credit_card = CreditCard.new("5541801923795240", 15000)
+        expect(credit_card.is_valid?).to eq (false)
+    end
 end
