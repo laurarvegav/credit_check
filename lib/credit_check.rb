@@ -115,6 +115,14 @@ user_input = ARGV
 # payload number and calculate a checksum number that, when added at the end
 # of the payload number, makes the credir card number valid.
 
-
+puts "Please enter your credit card number"
+input = gets.chomp
+if Luhn_Algorithm(input) == true
+    puts "The number #{input} is valid!"
+        true
+    else
+        puts "The number #{input} is invalid!"
+        false
+end
 
 # Can you make it work for American Express numbers? 342804633855673 is valid but 342801633855673 is invalid
